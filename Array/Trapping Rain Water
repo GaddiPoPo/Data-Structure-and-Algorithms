@@ -1,0 +1,26 @@
+class Solution(object):
+    def trap(self, height):
+        n = len(height)
+        if n == 0:
+            return 0
+
+        left = 0
+        right = n - 1
+        leftmax = 0
+        rightmax = 0
+        amount = 0
+
+        while left <= right:
+            if height[left]<height[right]:
+                if leftmax>height[left]:
+                    amount+=(leftmax-height[left])
+                else:
+                    leftmax=height[left]
+                left+=1
+            else:
+                if height[right]>rightmax:
+                    rightmax=height[right]
+                else:
+                    amount+=(rightmax-height[right])
+                right-=1
+        return amount

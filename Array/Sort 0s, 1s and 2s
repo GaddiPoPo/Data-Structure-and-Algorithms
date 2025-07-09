@@ -1,0 +1,18 @@
+class Solution:
+    # Function to sort an array of 0s, 1s, and 2s
+    def sort012(self, arr):
+        # code here
+        l=0
+        s=0
+        r=len(arr)-1
+        while s<=r:
+            if arr[s]==0:
+                arr[l],arr[s]=arr[s],arr[l]
+                l+=1
+                s+=1
+            elif arr[s]==1:
+                s+=1
+            else:# arr[s]==2
+                arr[s],arr[r]=arr[r],arr[s]
+                r-=1
+        return arr

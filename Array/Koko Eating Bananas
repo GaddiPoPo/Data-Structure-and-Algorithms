@@ -1,0 +1,18 @@
+import math
+class Solution(object):
+    def minEatingSpeed(self, arr, k):
+        n=len(arr)
+        start=1
+        end=max(arr)
+        ans=end
+        while start<=end:
+            mid=(start+end)//2
+            count=0
+            for i in range(n):
+                count += math.ceil(arr[i] / float(mid))
+            if count>k:
+                start=mid+1
+            else:
+                ans=mid
+                end=mid-1
+        return ans

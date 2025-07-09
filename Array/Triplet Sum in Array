@@ -1,0 +1,25 @@
+class Solution:
+    # Function to find minimum number of pages.
+    def findPages(self, arr, k):
+        n=len(arr)
+        if k>n:
+            return -1
+        low=max(arr)
+        high=sum(arr)
+        result=-1
+        while low<=high:
+            mid=(low+high)//2
+            pages=0
+            count=1
+            for i in range(n):
+                pages+=arr[i]
+                if pages > mid:
+                    count+=1
+                    pages=arr[i]
+            if count<=k:
+                result=mid
+                high=mid-1
+            else:
+                low=mid+1
+        return result
+

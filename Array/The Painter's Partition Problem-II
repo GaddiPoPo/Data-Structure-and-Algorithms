@@ -1,0 +1,19 @@
+def find4Numbers(A, n, X):
+    A.sort()  # Sort the array first
+
+    for i in range(n - 3):
+        for j in range(i + 1, n - 2):
+            left = j + 1
+            right = n - 1
+
+            while left < right:
+                current_sum = A[i] + A[j] + A[left] + A[right]
+
+                if current_sum == X:
+                    return True
+                elif current_sum < X:
+                    left += 1
+                else:
+                    right -= 1
+
+    return False

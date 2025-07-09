@@ -1,0 +1,22 @@
+class Solution:
+    def aggressiveCows(self, arr, k):
+        arr.sort()
+        low=1
+        high =arr[-1]-arr[0]
+        n=len(arr)
+        last_pos=arr[0]
+        ans=0
+        while low<=high:
+            mid=(high+low)//2
+            count=1
+            last_pos=arr[0]
+            for i in range(1,n):
+                if last_pos+mid<=arr[i]:
+                    count+=1
+                    last_pos=arr[i]
+            if count<k:
+                high=mid-1
+            else:
+                low=mid+1
+                ans=mid
+        return ans

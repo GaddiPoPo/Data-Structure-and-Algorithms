@@ -1,0 +1,12 @@
+#User function Template for python3
+
+class Solution:
+    #Function to return the count of number of elements in union of two arrays.
+    def findUnion(self, a, b):
+        # code here
+        s=set()
+        for i in range(len(a)):
+            s.add(a[i])
+        for j in range(len(b)):
+            s.add(b[j])
+        return len(list(s))
