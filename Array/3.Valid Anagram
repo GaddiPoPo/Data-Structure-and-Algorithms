@@ -1,0 +1,10 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        Sset={}
+        Tset={}
+        if len(s) !=len(t):
+            return False
+        for i in range(len(s)):
+            Sset[s[i]]=1+Sset.get(s[i],0)
+            Tset[t[i]]=1+Tset.get(t[i],0)
+        return Sset==Tset
